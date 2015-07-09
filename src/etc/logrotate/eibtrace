@@ -1,0 +1,14 @@
+/run/shm/eibtrace.log {
+        daily
+        missingok
+        rotate 1
+        compress
+        delaycompress
+        notifempty
+        sharedscripts
+        prerotate
+            /etc/init.d/eibnetmux stop
+        postrotate
+            /etc/init.d/eibnetmux start
+        endscript
+}

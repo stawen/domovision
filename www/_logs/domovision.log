@@ -1,0 +1,145 @@
+31.05.2015 | 23:21:30 | INFO    | knx-bus
+31.05.2015 | 23:21:30 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:21:30 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:21:31 | INFO    | knx-trace
+31.05.2015 | 23:21:31 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:21:31 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:21:31 | INFO    | knx-sniffer
+31.05.2015 | 23:21:31 | INFO    | knx-sniffer::normal pid
+31.05.2015 | 23:21:31 | INFO    | /var/run/knx-sniffer.pid
+31.05.2015 | 23:21:31 | INFO    | knx-tracking
+31.05.2015 | 23:21:31 | INFO    | knx-tracking::normal pid
+31.05.2015 | 23:21:31 | INFO    | /var/run/knx-tracking.pid
+31.05.2015 | 23:21:31 | INFO    | knx-daemon
+31.05.2015 | 23:21:31 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:21:31 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:27:15 | INFO    | knx-bus
+31.05.2015 | 23:27:15 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:27:15 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:27:16 | INFO    | knx-trace
+31.05.2015 | 23:27:16 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:27:16 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:27:16 | INFO    | knx-sniffer
+31.05.2015 | 23:27:16 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:27:16 | INFO    | knx-tracking
+31.05.2015 | 23:27:16 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:27:16 | INFO    | knx-daemon
+31.05.2015 | 23:27:16 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:27:16 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:27:40 | INFO    | knx-bus
+31.05.2015 | 23:27:40 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:27:40 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:27:40 | INFO    | knx-trace
+31.05.2015 | 23:27:40 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:27:40 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:27:40 | INFO    | knx-sniffer
+31.05.2015 | 23:27:40 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:27:41 | INFO    | knx-tracking
+31.05.2015 | 23:27:41 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:27:41 | INFO    | knx-daemon
+31.05.2015 | 23:27:41 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:27:41 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:29:44 | INFO    | knx-bus
+31.05.2015 | 23:29:44 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:29:44 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:29:44 | INFO    | knx-trace
+31.05.2015 | 23:29:44 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:29:44 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:29:44 | INFO    | knx-sniffer
+31.05.2015 | 23:29:44 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:29:45 | INFO    | knx-tracking
+31.05.2015 | 23:29:45 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:29:45 | INFO    | knx-daemon
+31.05.2015 | 23:29:45 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:29:45 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:31:06 | INFO    | knx-bus
+31.05.2015 | 23:31:06 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:31:06 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:31:07 | INFO    | knx-trace
+31.05.2015 | 23:31:07 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:31:07 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:31:07 | INFO    | knx-sniffer
+31.05.2015 | 23:31:07 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:31:07 | INFO    | knx-tracking
+31.05.2015 | 23:31:07 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:31:07 | INFO    | knx-daemon
+31.05.2015 | 23:31:07 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:31:07 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:31:33 | INFO    | knx-bus
+31.05.2015 | 23:31:33 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:31:33 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:31:34 | INFO    | knx-trace
+31.05.2015 | 23:31:34 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:31:34 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:31:34 | INFO    | knx-sniffer
+31.05.2015 | 23:31:34 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:31:34 | INFO    | knx-tracking
+31.05.2015 | 23:31:34 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:31:34 | INFO    | knx-daemon
+31.05.2015 | 23:31:34 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:31:34 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:33:40 | INFO    | knx-bus
+31.05.2015 | 23:33:40 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:33:40 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:33:41 | INFO    | knx-trace
+31.05.2015 | 23:33:41 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:33:41 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:33:41 | INFO    | knx-sniffer
+31.05.2015 | 23:33:41 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:33:41 | INFO    | knx-tracking
+31.05.2015 | 23:33:41 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:33:41 | INFO    | knx-daemon
+31.05.2015 | 23:33:41 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:33:41 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:34:28 | INFO    | knx-bus
+31.05.2015 | 23:34:28 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:34:28 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:34:28 | INFO    | knx-trace
+31.05.2015 | 23:34:28 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:34:28 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:34:28 | INFO    | knx-sniffer
+31.05.2015 | 23:34:28 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:34:29 | INFO    | knx-tracking
+31.05.2015 | 23:34:29 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:34:29 | INFO    | knx-daemon
+31.05.2015 | 23:34:29 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:34:29 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:37:18 | INFO    | knx-bus
+31.05.2015 | 23:37:18 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:37:18 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:37:18 | INFO    | knx-trace
+31.05.2015 | 23:37:18 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:37:18 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:37:18 | INFO    | knx-sniffer
+31.05.2015 | 23:37:18 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:37:19 | INFO    | knx-tracking
+31.05.2015 | 23:37:19 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:37:19 | INFO    | knx-daemon
+31.05.2015 | 23:37:19 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:37:19 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:38:41 | INFO    | knx-bus
+31.05.2015 | 23:38:41 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:38:41 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:38:42 | INFO    | knx-trace
+31.05.2015 | 23:38:42 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:38:42 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:38:42 | INFO    | knx-sniffer
+31.05.2015 | 23:38:42 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:38:42 | INFO    | knx-tracking
+31.05.2015 | 23:38:42 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:38:42 | INFO    | knx-daemon
+31.05.2015 | 23:38:42 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:38:42 | INFO    | /var/run/knx-daemon.pid
+31.05.2015 | 23:40:41 | INFO    | knx-bus
+31.05.2015 | 23:40:41 | INFO    | knx-bus::normal pid
+31.05.2015 | 23:40:41 | INFO    | /var/run/knx-bus.pid
+31.05.2015 | 23:40:41 | INFO    | knx-trace
+31.05.2015 | 23:40:41 | INFO    | knx-trace::normal pid
+31.05.2015 | 23:40:41 | INFO    | /var/run/knx-trace.pid
+31.05.2015 | 23:40:41 | INFO    | knx-sniffer
+31.05.2015 | 23:40:41 | INFO    | /var/run/knx-sniffer.php/knx-sniffer.php.pid
+31.05.2015 | 23:40:42 | INFO    | knx-tracking
+31.05.2015 | 23:40:42 | INFO    | /var/run/knx-tracking.php/knx-tracking.php.pid
+31.05.2015 | 23:40:42 | INFO    | knx-daemon
+31.05.2015 | 23:40:42 | INFO    | knx-daemon::normal pid
+31.05.2015 | 23:40:42 | INFO    | /var/run/knx-daemon.pid

@@ -1,0 +1,92 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          knx-sniffer.php
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Parses KNX logfiles and stores them in MySQL for INIT
+# Description:       This file should be used to construct scripts to be
+#                    placed in /etc/init.d.
+### END INIT INFO
+
+# Author: Stan <> 
+# 
+
+# Do NOT "set -e" 
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/opt/domovision/core:/usr/local/bin:/opt/domovision/bin/daemon
+DESC="KNX daemon -> manage all KNX services"
+NAME=knx-daemon
+SCRIPTNAME=/etc/init.d/$NAME
+PATH_DAEMON=/opt/domovision/bin/daemon
+
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+# Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
+. /lib/lsb/init-functions
+
+#
+# Function that starts the daemon/service
+#
+do_start()
+{
+    $PATH_DAEMON/knx-bus start
+    sleep 2
+    $PATH_DAEMON/knx-trace start
+    sleep 2
+    $PATH_DAEMON/knx-sniffer start
+    sleep 2
+    #$PATH_DAEMON/knx-tracking start
+}
+
+#
+# Function that stops the daemon/service
+#
+do_stop()
+{
+    $PATH_DAEMON/knx-bus stop
+    sleep 2
+    $PATH_DAEMON/knx-trace stop
+    sleep 2
+    $PATH_DAEMON/knx-sniffer stop
+    sleep 2
+    #$PATH_DAEMON/knx-tracking stop
+    
+}
+
+do_status()
+{
+	$PATH_DAEMON/knx-bus status
+    $PATH_DAEMON/knx-trace status
+    $PATH_DAEMON/knx-sniffer status
+    #$PATH_DAEMON/knx-tracking status
+}
+
+case "$1" in
+  start)
+	do_start
+	;;
+  stop)
+	do_stop
+	;;
+  status)
+	do_status	     
+    ;;
+  restart|force-reload)
+	do_stop
+	do_start
+	;;
+   *)
+	echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload|status}" >&2
+	exit 3
+	;;
+esac
+
+:
