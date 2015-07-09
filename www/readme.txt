@@ -37,10 +37,21 @@ Mise à jour :
 ---script install
 
 apt-get update 
-apt-get dist-upgrade
+#apt-get dist-upgrade
 apt-get install build-essential
-cd /usr/src/ 
-# wget "http://downloads.sourceforge.net/project/zlogger/zlogger/1.5.0/zlogger-1.5.0.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fzlogger%2F&amp;ts=1334692716&amp;use_mirror=freefr" -O zlogger-1.5.0.tar.bz2 
+
+
+wget ftp://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
+tar zxvf pth-2.0.7.tar.gz
+cd pth-2.0.7/
+./configure
+make
+make install
+
+##utiliser ceci au lieu de pthsem_2.0.8.tar.gz
+
+
+cd /usr/src/pck 
 tar xfv zlogger-1.5.0.tar.bz2 
 cd zlogger-1.5.0 
 ./configure --with-plugins --enable-pth-plugins
@@ -48,8 +59,10 @@ make
 make install
 ldconfig
 
+
+
+
 # cd /usr/src/ 
-# wget "http://downloads.sourceforge.net/project/eibnetmux/eibnetmux/2.0.1/eibnetmux-2.0.1.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Feibnetmux%2Ffiles%2Feibnetmux%2F2.0.1%2F&amp;ts=1334739400&amp;use_mirror=netcologne" -O eibnetmux-2.0.1.tar.gz 
 tar zxvf eibnetmux-2.0.1.tar.gz 
 cd eibnetmux-2.0.1 
 ./configure
@@ -67,8 +80,8 @@ cp /opt/domovision/src/eibnetmuxclient-domovision/eibtrace/eibtrace.c /opt/domov
 <A completer>
 
 ./configure 
+
 make 
-make install
 
 cp eibcommand/eibcommand /usr/local/bin/
 cp eibread/eibread /usr/local/bin/
@@ -77,4 +90,5 @@ cp eibtrace/eibtrace /usr/local/bin/
 apt-get install php5 php5-cli php5-mysql libapache2-mod-php5 apache2 mysql-server php-pear
 pear install -f System_Daemon
 pecl install inotify
+# You should add "extension=inotify.so" to php.ini
 
