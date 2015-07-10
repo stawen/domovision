@@ -182,7 +182,7 @@ echo "||||||--------------------------------------------------------------------
 echo "|||||| -> Custom Logrotate                                "
 echo "||||||------------------------------------------------------------------------||||||"   
 
-    cp -f $CONTEXT/src/etc/php5/mods-available/30-inotify.ini /etc/php5/mods-available/
+    cp -f $CONTEXT/src/etc/php5/mods-availaible/30-inotify.ini /etc/php5/mods-available/
     cp -f $CONTEXT/src/etc/logrotate/apache2 /etc/logrotate.d/
     cp -f $CONTEXT/src/etc/logrotate/eibtrace /etc/logrotate.d/
     cp -f $CONTEXT/src/etc/logrotate/mysql-server /etc/logrotate.d/
