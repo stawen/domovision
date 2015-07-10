@@ -174,7 +174,7 @@ echo "||||||--------------------------------------------------------------------
     if [ $lamp == 1 ] 
     then
          echo "|||||| -> Installation Apache + Php5 + Mysql                         ||||||"
-        apt-get -qy install php5 php5-cli php5-mysql libapache2-mod-php5 apache2 mysql-server php-pear
+        apt-get -qqy install php5 php5-cli php5-mysql libapache2-mod-php5 apache2 mysql-server php-pear
     fi
     pear install -f System_Daemon   >> $log
     pecl install -f inotify         >> $log
@@ -183,7 +183,7 @@ echo "||||||--------------------------------------------------------------------
 echo "|||||| -> Custom Logrotate                                "
 echo "||||||------------------------------------------------------------------------||||||"   
 
-    cp -f $CONTEXT/src/etc/php5/mods-availaible/30-inotify.ini /etc/php5/mods-available/
+    cp -f $CONTEXT/src/etc/php5/mods_available/30-inotify.ini /etc/php5/mods-available/
     cp -f $CONTEXT/src/etc/logrotate/apache2 /etc/logrotate.d/
     cp -f $CONTEXT/src/etc/logrotate/eibtrace /etc/logrotate.d/
     cp -f $CONTEXT/src/etc/logrotate/mysql-server /etc/logrotate.d/
@@ -203,7 +203,7 @@ echo "||||||--------------------------------------------------------------------
     echo   "tmpfs           $CONTEXT/core/tmp         tmpfs nodev,nosuid,size=50M 0 0" >> /etc/fstab 
 
 echo "||||||------------------------------------------------------------------------||||||"
-echo "|||||| -> Update Sudoers (restart daemon from web interface                          "
+echo "|||||| -> Update Sudoers (restart daemon from web interface)                        "
 echo "||||||------------------------------------------------------------------------||||||"      
 
     #cat $CONTEXT/src/etc/sudoers >> /etc/sudoers
