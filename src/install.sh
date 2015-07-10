@@ -7,6 +7,7 @@ zlogger="zlogger-1.5.0"
 eibnetmux="eibnetmux-2.0.1"
 eibnetmuxSamples="eibnetmuxclientsamples-1.7.1"
 eibnetmuxDomo="eibnetmuxclient-domovision"
+log=$CONTEXT/install.log
 
 daemon_eibnetmux="knx-daemon"
 
@@ -97,10 +98,10 @@ echo "||||||--------------------------------------------------------------------
     cd $CONTEXT/src/pck/
     tar zxf $pth".tar.gz"
     cd $pth
-    ./configure
-    make
-    make install
-    ldconfig
+    ./configure     >> $log
+    make            >> $log
+    make install    >> $log
+    ldconfig        >> $log
     
     cd $CONTEXT
     
@@ -113,10 +114,10 @@ echo "||||||--------------------------------------------------------------------
     cd $CONTEXT/src/pck/
     tar jxf $zlogger".tar.bz2"
     cd $zlogger
-    ./configure --with-plugins --enable-pth-plugins
-    make
-    make install
-    ldconfig
+    ./configure --with-plugins --enable-pth-plugins >> $log
+    make                                            >> $log
+    make install                                    >> $log
+    ldconfig                                        >> $log
     
     cd $CONTEXT
     
@@ -129,10 +130,10 @@ echo "||||||--------------------------------------------------------------------
     cd $CONTEXT/src/pck/
     tar zxf $eibnetmux".tar.gz"
     cd $eibnetmux
-    ./configure
-    make
-    make install
-    ldconfig
+    ./configure     >> $log
+    make            >> $log
+    make install    >> $log
+    ldconfig        >> $log
     
     cd $CONTEXT
     
@@ -152,15 +153,15 @@ echo "||||||--------------------------------------------------------------------
     
     
     cd $eibnetmuxSamples
-    ./configure
-    make
-    make install
+    ./configure     >> $log
+    make            >> $log
+    make install    >> $log
     
     cp -f $CONTEXT/src/pck/$eibnetmuxSamples/eibcommand/eibcommand /usr/local/bin/
     cp -f $CONTEXT/src/pck/$eibnetmuxSamples/eibread/eibread /usr/local/bin/
     cp -f $CONTEXT/src/pck/$eibnetmuxSamples/eibtrace/eibtrace /usr/local/bin/
     
-    ldconfig
+    ldconfig >> $log
     
     cd $CONTEXT
     
@@ -175,8 +176,8 @@ echo "||||||--------------------------------------------------------------------
          echo "|||||| -> Installation Apache + Php5 + Mysql                         ||||||"
         apt-get -qy install php5 php5-cli php5-mysql libapache2-mod-php5 apache2 mysql-server php-pear
     fi
-    pear install -f System_Daemon
-    pecl install -f inotify
+    pear install -f System_Daemon   >> $log
+    pecl install -f inotify         >> $log
 
 echo "||||||------------------------------------------------------------------------||||||"
 echo "|||||| -> Custom Logrotate                                "
@@ -205,5 +206,13 @@ echo "||||||--------------------------------------------------------------------
 echo "|||||| -> Update Sudoers (restart daemon from web interface                          "
 echo "||||||------------------------------------------------------------------------||||||"      
 
-    cat $CONTEXT/src/etc/sudoers >> /etc/sudoers
+    #cat $CONTEXT/src/etc/sudoers >> /etc/sudoers
+    echo "###############################################" >> /etc/sudoers
+    echo "####                DOMOVISION              ###" >> /etc/sudoers
+    echo "###############################################" >> /etc/sudoers
+    echo "# User alias specification"                      >> /etc/sudoers
+    echo "User_Alias DOMO=www-data"                        >> /etc/sudoers
+    echo "# Cmnd alias specification"                      >> /etc/sudoers
+    echo "Cmnd_Alias KNX_DAEMON=/etc/init.d/knx-daemon,$CONTEXT/bin/daemon/knx-sniffer" >> /etc/sudoers
+    echo "DOMO ALL=(ALL) NOPASSWD:KNX_DAEMON"              >> /etc/sudoers    
     
