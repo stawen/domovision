@@ -254,12 +254,17 @@ echo "|||||| -> Knx-bus                                                         
     
     
     echo "GATEWAY_KNX='$ip'" >> /etc/default/knx-bus
+    echo "CONTEXT=$CONTEXT" >> /etc/default/knx-bus
     
 echo "|||||| -> Knx-daemon                                                          ||||||"
 
     echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin:$CONTEXT/bin/daemon" > /etc/default/knx-daemon
     echo "PATH_DAEMON=$CONTEXT/bin/daemon" >> /etc/default/knx-daemon
 
+    ln -fs $CONTEXT/bin/daemon/knx-daemon /etc/init.d/knx-daemon
+    chmod 777 /etc/init.d/knx-daemon
+    update-rc.d knx-daemon defaults 99
+    
 echo "|||||| -> Knx-sniffer                                                         ||||||"
     
     echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin" > /etc/default/knx-sniffer

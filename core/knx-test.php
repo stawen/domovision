@@ -3,10 +3,11 @@
 <?php
 
 
-include '/usr/bin/local/knx-function-daemon.php';
+//include '/usr/bin/local/knx-function-daemon.php';
 
  
-System_Daemon::notice("######    KNX test   #####");
+//System_Daemon::notice("######    KNX test   #####");
+echo ":::::".__DIR__;
 
 /*
 $sniffed[ $data['group_addr'] ]   = array(

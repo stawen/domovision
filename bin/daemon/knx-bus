@@ -23,10 +23,10 @@ NAME=knx-bus
 # Read configuration variable file if it is present
 [ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
 
-
 PIDFILE=/var/run/$NAME.pid
 DAEMON=/usr/local/bin/eibnetmux
-DAEMON_ARGS="-t -d --pidfile=$PIDFILE $GATEWAY_KNX"
+
+DAEMON_ARGS="-t -d --pidfile=$PIDFILE --log_dest=file:$CONTEXT/core/tmp/knx-bus.log $GATEWAY_KNX"
 #DAEMON_ARGS="-t -d $GATEWAY_KNX"
 
 

@@ -6,7 +6,8 @@ include '/opt/domovision/core/_includes/knx-function-daemon.php';
 include '/opt/domovision/core/_includes/knx-config.php';
 include '/opt/domovision/core/_includes/knx-function.php';
 include '/opt/domovision/core/_includes/eib-functions.php';
- 
+
+
 System_Daemon::info("######    KNX sniffer -> make and update knxtrace.json   #####");
 
 /* 
@@ -84,8 +85,8 @@ while (true) {
     // On tail le fichier de log
     $knxlisten = tail(PATH_LOG,$lastpos);
 
-    // On réagit dès qu'on a un Write
-    // Pour chaque ligne, on récupère le Groupe d'Addresse et de la valeur qu'on converti
+    // On rï¿½agit dï¿½s qu'on a un Write
+    // Pour chaque ligne, on rï¿½cupï¿½re le Groupe d'Addresse et de la valeur qu'on converti
 	$groupaddr   = get_string_between($knxlisten,'group addr: ',' -');
 	$hexa        = get_string_between($knxlisten,'Hexa: ',' -');
     
