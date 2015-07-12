@@ -21,6 +21,24 @@ check_run()  {
     return $status
 }
 
+function valid_ip()
+{
+    local  ip=$1
+    local  stat=1
+
+    if [[ $ip =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+        OIFS=$IFS
+        IFS='.'
+        ip=($ip)
+        IFS=$OIFS
+        [[ ${ip[0]} -le 255 && ${ip[1]} -le 255 \
+            && ${ip[2]} -le 255 && ${ip[3]} -le 255 ]]
+        stat=$?
+    fi
+    return $stat
+}
+
+
 # Check for root priviledges
 if [ $(id -u) != 0 ]
 then
@@ -198,7 +216,7 @@ echo "||||||--------------------------------------------------------------------
         echo   "tmpfs           /var/log         tmpfs nodev,nosuid,size=50M 0 0" >> /etc/fstab  
     fi
     
-    mkdir $CONTEXT/core/tmp
+    mkdir -p $CONTEXT/core/tmp
     chmod 777 $CONTEXT/core/tmp
     echo   "tmpfs           $CONTEXT/core/tmp         tmpfs nodev,nosuid,size=50M 0 0" >> /etc/fstab 
 
@@ -206,7 +224,7 @@ echo "||||||--------------------------------------------------------------------
 echo "|||||| -> Update Sudoers (restart daemon from web interface)                        "
 echo "||||||------------------------------------------------------------------------||||||"      
 
-    #cat $CONTEXT/src/etc/sudoers >> /etc/sudoers
+    
     echo "###############################################" >> /etc/sudoers
     echo "####                DOMOVISION              ###" >> /etc/sudoers
     echo "###############################################" >> /etc/sudoers
@@ -216,3 +234,43 @@ echo "||||||--------------------------------------------------------------------
     echo "Cmnd_Alias KNX_DAEMON=/etc/init.d/knx-daemon,$CONTEXT/bin/daemon/knx-sniffer" >> /etc/sudoers
     echo "DOMO ALL=(ALL) NOPASSWD:KNX_DAEMON"              >> /etc/sudoers    
     
+echo "||||||------------------------------------------------------------------------||||||"
+echo "|||||| -> Install Daemon script                        "
+echo "||||||------------------------------------------------------------------------||||||"      
+    
+echo "|||||| -> Knx-bus                                                             ||||||"
+    
+    echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin" > /etc/default/knx-bus
+    
+    while true; do
+        read -p "-> KNX GateWay IP ? [ex 192.168.0.23] " ip
+        if valid_ip $ip
+        then 
+            break;
+        else
+            echo "$ip is not a valide ip !!"
+        fi
+    done
+    
+    
+    echo "GATEWAY_KNX='$ip'" >> /etc/default/knx-bus
+    
+echo "|||||| -> Knx-daemon                                                          ||||||"
+
+    echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin:$CONTEXT/bin/daemon" > /etc/default/knx-daemon
+    echo "PATH_DAEMON=$CONTEXT/bin/daemon" >> /etc/default/knx-daemon
+
+echo "|||||| -> Knx-sniffer                                                         ||||||"
+    
+    echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin" > /etc/default/knx-sniffer
+    echo "CONTEXT=$CONTEXT" >> /etc/default/knx-sniffer
+
+echo "|||||| -> Knx-trace                                                           ||||||"
+    
+    echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin" > /etc/default/knx-trace
+    echo "CONTEXT=$CONTEXT" >> /etc/default/knx-trace
+
+echo "|||||| -> Knx-tracking                                                        ||||||"
+    
+    echo "PATH=/sbin:/usr/sbin:/bin:/usr/bin:$CONTEXT/core:/usr/local/bin" > /etc/default/knx-tracking
+    echo "CONTEXT=$CONTEXT" >> /etc/default/knx-tracking

@@ -15,21 +15,24 @@
 
 # Do NOT "set -e" 
 
-# PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/opt/domovision/core:/usr/local/bin
+
 DESC="KNX sniffer -> make and update knxtrace.json"
 NAME=knx-sniffer
-DAEMON=/opt/domovision/core/$NAME.php
+
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+DAEMON=$CONTEXT/core/$NAME.php
 DAEMON_ARGS=""
 PIDFILE=/var/run/$NAME.php/$NAME.php.pid
 SCRIPTNAME=/etc/init.d/$NAME
 USER=root
+PATH_LOG=$CONTEXT/core/tmp/$NAME.log
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
 
-# Read configuration variable file if it is present
-[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh

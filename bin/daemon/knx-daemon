@@ -16,14 +16,17 @@
 # Do NOT "set -e" 
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/opt/domovision/core:/usr/local/bin:/opt/domovision/bin/daemon
+
 DESC="KNX daemon -> manage all KNX services"
 NAME=knx-daemon
-SCRIPTNAME=/etc/init.d/$NAME
-PATH_DAEMON=/opt/domovision/bin/daemon
 
 # Read configuration variable file if it is present
 [ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+
+SCRIPTNAME=/etc/init.d/$NAME
+
+
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh

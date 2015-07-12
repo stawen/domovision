@@ -15,20 +15,22 @@
 
 # Do NOT "set -e" 
 
-# PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/opt/domovision/core:/usr/local/bin
+
 DESC="KNX Tracking -> Insert in db knxtrace.json each minute"
 NAME=knx-tracking
-DAEMON=/opt/domovision/core/$NAME.php
+
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+
 DAEMON_ARGS=""
 PIDFILE=/var/run/$NAME.php/$NAME.php.pid
 SCRIPTNAME=/etc/init.d/$NAME
+DAEMON=$CONTEXT/core/$NAME.php
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
 
-# Read configuration variable file if it is present
-[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh

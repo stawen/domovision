@@ -15,10 +15,9 @@
 
 # Do NOT "set -e" 
 
-# PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/opt/domovision/core:/usr/local/bin
 DESC="KNX Bus -> Manage Eibtrace for log knx in trace log"
 NAME=knx-trace
+
 
 
 SCRIPTNAME=/etc/init.d/$NAME
@@ -26,13 +25,16 @@ SCRIPTNAME=/etc/init.d/$NAME
 DAEMON=/usr/local/bin/eibtrace
 DAEMON_ARGS=127.0.0.1
 PIDFILE=/var/run/$NAME.pid
-PATH_LOG=/run/shm/$NAME.log
+
+
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+PATH_LOG=$CONTEXT/core/tmp/$NAME.log
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
 
-# Read configuration variable file if it is present
-[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh

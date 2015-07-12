@@ -16,12 +16,15 @@
 # Do NOT "set -e" 
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/opt/domovision/core:/usr/local/bin
+
 DESC="KNX Bus -> Manage Eidb interface with Kns bus"
 NAME=knx-bus
 
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
+
 PIDFILE=/var/run/$NAME.pid
-GATEWAY_KNX="192.168.0.23"
 DAEMON=/usr/local/bin/eibnetmux
 DAEMON_ARGS="-t -d --pidfile=$PIDFILE $GATEWAY_KNX"
 #DAEMON_ARGS="-t -d $GATEWAY_KNX"
@@ -34,8 +37,7 @@ SCRIPTNAME=/etc/init.d/$NAME
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
 
-# Read configuration variable file if it is present
-[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
+
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh
