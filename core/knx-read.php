@@ -1,7 +1,8 @@
 #!/usr/bin/php -q
 <?php
+DEFINE('CONTEXT',dirname($_SERVER['SCRIPT_FILENAME']));
 
-include '/opt/domovision/core/_includes/eib-functions.php';
+include CONTEXT.'/core/_includes/eib-functions.php';
  
     $groupaddr  = $argv[1];
     $dpt 	= $argv[2];

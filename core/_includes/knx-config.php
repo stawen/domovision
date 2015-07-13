@@ -1,7 +1,7 @@
 <?php
 
-DEFINE("PATH_LOG","/run/shm/knx-trace.log");
-DEFINE("PATH_JSON","/run/shm/domotrace.json");
+DEFINE("PATH_LOG",CONTEXT."/core/tmp/knx-trace.log");
+DEFINE("PATH_JSON",CONTEXT."/core/tmp/domotrace.json");
 
 
 // Connexion avec la base de données mysql

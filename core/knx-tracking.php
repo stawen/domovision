@@ -1,11 +1,12 @@
 #!/usr/bin/php -q
 <?php
 
+include '_includes/knx-function-daemon.php';
+include '_includes/knx-config.php';
 
-include '/opt/domovision/core/_includes/knx-function-daemon.php';
-include '/opt/domovision/core/_includes/knx-config.php';
-include '/opt/domovision/core/_includes/knx-function.php';
-include '/opt/domovision/core/_includes/eib-functions.php';
+
+include '_includes/knx-function.php';
+include '_includes/eib-functions.php';
  
 System_Daemon::info("######    KNX Tracking -> Insert in db knxtrace.json each minute   #####");
 
