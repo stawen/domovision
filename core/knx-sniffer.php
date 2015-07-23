@@ -2,21 +2,23 @@
 <?php
 
 
-include '/opt/domovision/core/_includes/knx-function-daemon.php';
-include '/opt/domovision/core/_includes/knx-config.php';
-include '/opt/domovision/core/_includes/knx-function.php';
-include '/opt/domovision/core/_includes/eib-functions.php';
+
+include '_includes/knx-config.php';
+include '_includes/knx-function-daemon.php';
+include '_includes/knx-function.php';
+include '_includes/eib-functions.php';
 
 
 System_Daemon::info("######    KNX sniffer -> make and update knxtrace.json   #####");
 
 /* 
-Requette permettant dre lister les equipement d'etzt et non d'action
+Requette permettant de lister les equipement d'etzt et non d'action
 */
 $req_sel_eq     = "SELECT group_addr,name,dpt,id,is_track FROM knx_equipement where knx_type_equipement_id=2" ;
 
 //System_Daemon::info("Requete SQL -> ".$req_sel_eq);
-$knx_eq     = mysql_query($req_sel_eq) or die (mysql_error());
+//$knx_eq     = mysql_query($req_sel_eq) or die (mysql_error());
+$knx_eq     = $db->query($req_sel_eq) or die ($mysqli->error);
 
 $sniffed = array();
 $oldSniffedValue = array();
@@ -24,7 +26,7 @@ $oldSniffedValue = array();
 Mise en forme des donnees dans un tableau pour les manipuler facilement
 */
 
-while($data = mysql_fetch_array($knx_eq)) {
+while($data = $knx_eq->fetch_array()) {
    
    	$sniffed[ $data['group_addr'] ]   = array(
    	                                        "id"        => $data['id'],
@@ -64,7 +66,7 @@ foreach($sniffed as $grpaddr => $value){
 	        	$req_eq_inser      = "INSERT INTO knx_tracking (knx_equipement_id,jour,heure,value) VALUES ('".$sniffed[$grpaddr]['id']."','".$jour."','".$heure."','".$sniffed[$grpaddr]['value']."')";
 				//System_Daemon::notice("Requete SQL -> ".$req_eq_inser);
 				// Et on update la BDD
-				mysql_query($req_eq_inser); 
+				$db->query($req_eq_inser);
 				//System_Daemon::notice("OK");
         	}
     
@@ -119,7 +121,7 @@ while (true) {
 	        	                                                                                      ."('".$sniffed[$groupaddr]['id']."','".$jour."','".$heure."','".$value."')";
 				//System_Daemon::notice("Requete SQL -> ".$req_eq_inser);
 				// Et on update la BDD
-				mysql_query($req_eq_inser); 
+				$db->query($req_eq_inser);
 				//System_Daemon::notice("OK");
         	}
         	$oldSniffedValue[$groupaddr] = $value;
